@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'documents/access.css' %}">
+<div class="container">
+<div class="form-container">
+    <h2>Hujjatga kirish</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+        <button type="submit">Kirish</button>
+    </form>
+
+</div>
+</div>
