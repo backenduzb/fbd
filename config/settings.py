@@ -33,13 +33,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'captcha',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'captcha',
     'docs',
     
 ]
@@ -128,5 +128,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
-RECAPTCHA_PUBLIC_KEY = 'SITE_KEY'
-RECAPTCHA_PRIVATE_KEY = 'SECRET_KEY'
+RECAPTCHA_PUBLIC_KEY = '6LevfDQsAAAAAB96h1MWJyPzvaLQdiKQ-5t92aO8'
+RECAPTCHA_PRIVATE_KEY = '6LevfDQsAAAAAJNmOE7G4Vc8a4sjDboVy0qwHCC1'
+
+# Agar localhostda test qilsangiz
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
