@@ -28,9 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSET_ORIGINS = [
-    'fbd-production.up.railway.app/'
+CSRF_TRUSTED_ORIGINS = [
+    "http://fbd-production.up.railway.app"
 ]
+
 
 # Application definition
 
