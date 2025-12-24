@@ -296,6 +296,27 @@ ul li .text{
     box-shadow: 0px 0px 5px rgb(139, 139, 139);
 }
 
+.save-as{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 350px;
+    gap: 10px;
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    box-shadow: 0px 0px 5px rgb(139, 139, 139);
+    z-index: 9999;
+}
+
+body.save-as-open .save-as{
+    display: flex;
+}
+
 body.others-open .others {
     display: flex;
 }
@@ -316,6 +337,14 @@ body.others-open .others {
     gap: 10px;
     margin-top: 15px;
     height: 205px;
+    width: 100%;
+}
+
+.menu-save-con{
+    gap: 1px;
+    gap: 10px;
+    margin-top: 15px;
+    height: 305px;
     width: 100%;
 }
 
@@ -346,3 +375,4 @@ body.others-open .others {
     fill: #abb0c4;
     color: #abb0c4;
 }
+

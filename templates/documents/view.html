@@ -28,8 +28,11 @@
             <p>Идоралараро ягона электрон тизими</p>
         </div>
     </header>
-    <aside id="save-as-open" class="save-as">
+    <aside id="save-as" class="save-as">
+        <div class="mini-button"></div>
 
+        <div class="menu-save-con">
+        </div>
     </aside>
     <aside id="others" class="others">
         <div class="mini-button"></div>
@@ -89,10 +92,13 @@
                 </span>
             </button>
             <script>
-                const saveAs = document.getElementById('save-as-btn');
-                saveAs.onclick = () => {
-                    document.body.classList.toggle('save-as-open');
-                };                
+                const saveAsBtn = document.getElementById('save-as-btn');
+                if (saveAsBtn) {
+                    saveAsBtn.onclick = () => {
+                        document.body.classList.remove('others-open');
+                        document.body.classList.toggle('save-as-open');
+                    };
+                }             
             </script>
             <button>
                 <span>
@@ -242,10 +248,12 @@
                 </button>
                 <script>
                     const othersBtn = document.getElementById('other-btn');
-
-                    othersBtn.onclick = () => {
-                        document.body.classList.toggle('others-open');
-                    };
+                    if (othersBtn) {
+                        othersBtn.onclick = () => {
+                            document.body.classList.remove('save-as-open')
+                            document.body.classList.toggle('others-open');
+                        };
+                    }
                 </script>
                 <div class="vr"></div>
                 <button>
