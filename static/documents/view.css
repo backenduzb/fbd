@@ -417,6 +417,7 @@ body.save-as-open .save-as {
   cursor: pointer;
 }
 
+.page-control,
 .zoom-tools{
   display: none;
   position: fixed;
@@ -434,6 +435,9 @@ body.save-as-open .save-as {
 }
 
 body.zp .zoom-tools {
+  display: flex;
+}
+body.pg .page-control{
   display: flex;
 }
 
@@ -507,7 +511,6 @@ body.others-open .others {
   display: flex;
 }
 
-
 .menu-buttons-con {
   margin-top: 15px;
   width: 100%;
@@ -518,6 +521,7 @@ body.others-open .others {
   margin-top: 15px;
 }
 
+.page-control .menu-buttons-con button,
 .menu-buttons-con button .l{
   display: flex;
   align-items: center;
@@ -526,6 +530,7 @@ body.others-open .others {
   transform: rotate(-90deg);
 }
 
+.page-control .menu-buttons-con button,
 .zoom-tools .menu-buttons-con button,
 .menu-buttons-con button,
 .menu-buttons-con a button {
