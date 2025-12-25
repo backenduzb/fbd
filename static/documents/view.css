@@ -611,23 +611,20 @@ body.others-open .others {
 
 
 
-/* Aktiv tugma uchun stil */
 .rotate-btn.active {
     border: 2px solid #4D90FE !important;
     background-color: rgba(77, 144, 254, 0.1);
 }
 
-/* PDF rasmi uchun cursor */
 #pdf-img {
     cursor: grab;
-    transition: transform 0.2s ease;
+    transition: transform 0.1s ease;
 }
 
 #pdf-img:active {
     cursor: grabbing;
 }
 
-/* Zoom paneli */
 #zoom-percent {
     font-size: 14px;
     color: #333;
