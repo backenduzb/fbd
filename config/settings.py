@@ -26,8 +26,11 @@ SECRET_KEY = 'django-insecure-y7^wr*v%5*&0-5^ant1iq8#bu(0=(4*l&6^1)ls-h@p8$@jj^c
 
 DEBUG = False
 
-ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS') if not DEBUG else '*']
-
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['fbd-production.up.railway.app']
+    
 if not DEBUG:
     CSRF_TRUSTED_ORIGINS = [
         "https://fbd-production.up.railway.app"
