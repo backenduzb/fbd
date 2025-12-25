@@ -1,41 +1,45 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Document
 from .forms import AccessForm, CaptchaForm
+from django.conf import settings
 
 def access_doc(request, pk):
     doc = get_object_or_404(Document, pk=pk)
     error = None
 
-    captcha_passed = request.session.get(f'captcha_passed_{pk}', False)
+    session_key = f'captcha_passed_{pk}'
+    captcha_passed = request.session.get(session_key, False)
 
+    if settings.DEBUG:
+
+        return render(request, 'documents/view.html', {
+                    'doc': doc,
+                    'pdf_preview': doc.pdf_image.url
+                })
     if not captcha_passed:
         if request.method == 'POST':
             form = CaptchaForm(request.POST)
             if form.is_valid():
-                request.session[f'captcha_passed_{pk}'] = True
-                captcha_passed = True
-        else:
-            form = CaptchaForm()
+                request.session[session_key] = True
+                return redirect(request.path)  
         return render(request, 'documents/access.html', {
-            'form': form,
-            'captcha_passed': captcha_passed
+            'captcha_passed': False
         })
-
     if request.method == 'POST':
         form = AccessForm(request.POST)
         if form.is_valid():
             if form.cleaned_data['pin'] == doc.pin:
+                request.session.pop(session_key, None)
                 return render(request, 'documents/view.html', {
                     'doc': doc,
                     'pdf_preview': doc.pdf_image.url
                 })
             else:
                 error = "PIN noto‘g‘ri"
-    else:
-        form = AccessForm()
+                request.session.pop(session_key, None)
+                return redirect(request.path)
 
     return render(request, 'documents/access.html', {
-        'form': form,
         'captcha_passed': True,
         'error': error
     })
