@@ -30,7 +30,7 @@ if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
     ALLOWED_HOSTS = ['fbd-production.up.railway.app']
-    
+
 if not DEBUG:
     CSRF_TRUSTED_ORIGINS = [
         "https://fbd-production.up.railway.app"
@@ -136,12 +136,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR / "media")
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-if DEBUG:
-    RECAPTCHA_PUBLIC_KEY = '6LcsqDQsAAAAAG8hQskQtc1rgpeO0jITZF_f-0xK'
-    RECAPTCHA_PRIVATE_KEY = '6LcsqDQsAAAAAE5NbR5pkPJJplNxLBL8VJmvJt-X'
-else:    
-    RECAPTCHA_PUBLIC_KEY = '6LdMizQsAAAAAIAxt19c6rEwVtu3q1by2zAWB1Ij'
-    RECAPTCHA_PRIVATE_KEY = '6LdMizQsAAAAALcMwbWytdOT3yf1T3pt3iLcFyDr'
+# if DEBUG:
+#     RECAPTCHA_PUBLIC_KEY = '6LcsqDQsAAAAAG8hQskQtc1rgpeO0jITZF_f-0xK'
+#     RECAPTCHA_PRIVATE_KEY = '6LcsqDQsAAAAAE5NbR5pkPJJplNxLBL8VJmvJt-X'
+# else:    
+RECAPTCHA_PUBLIC_KEY = '6LdMizQsAAAAAIAxt19c6rEwVtu3q1by2zAWB1Ij'
+RECAPTCHA_PRIVATE_KEY = '6LdMizQsAAAAALcMwbWytdOT3yf1T3pt3iLcFyDr'
 
 
 # Agar localhostda test qilsangiz
