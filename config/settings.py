@@ -24,11 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-y7^wr*v%5*&0-5^ant1iq8#bu(0=(4*l&6^1)ls-h@p8$@jj^c'
 
-DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG') or True
 
-ALLOWED_HOSTS = ['fbd-production.up.railway.app']
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS') if not DEBUG else '*']
 
-CSRF_TRUSTED_ORIGINS = [
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = [
         "https://fbd-production.up.railway.app"
     ]
 
@@ -125,19 +126,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = os.path.join(BASE_DIR / "static")
+
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR / "media")
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-# if DEBUG:
-#     RECAPTCHA_PUBLIC_KEY = '6LcsqDQsAAAAAG8hQskQtc1rgpeO0jITZF_f-0xK'
-#     RECAPTCHA_PRIVATE_KEY = '6LcsqDQsAAAAAE5NbR5pkPJJplNxLBL8VJmvJt-X'
-# else:    
-RECAPTCHA_PUBLIC_KEY = '6LdMizQsAAAAAIAxt19c6rEwVtu3q1by2zAWB1Ij'
-RECAPTCHA_PRIVATE_KEY = '6LdMizQsAAAAALcMwbWytdOT3yf1T3pt3iLcFyDr'
+if DEBUG:
+    RECAPTCHA_PUBLIC_KEY = '6LcsqDQsAAAAAG8hQskQtc1rgpeO0jITZF_f-0xK'
+    RECAPTCHA_PRIVATE_KEY = '6LcsqDQsAAAAAE5NbR5pkPJJplNxLBL8VJmvJt-X'
+else:    
+    RECAPTCHA_PUBLIC_KEY = '6LdMizQsAAAAAIAxt19c6rEwVtu3q1by2zAWB1Ij'
+    RECAPTCHA_PRIVATE_KEY = '6LdMizQsAAAAALcMwbWytdOT3yf1T3pt3iLcFyDr'
 
 
 # Agar localhostda test qilsangiz
