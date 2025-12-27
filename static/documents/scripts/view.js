@@ -88,6 +88,22 @@ fsBtn2.onclick = () => {
     }
 };
 
+const settingsBtn = document.getElementById('settings');
+
+settingsBtn.onclick = () =>{
+    document.body.classList.remove(
+            'sidebar-open',
+            'others-open',
+            'save-as-open',
+            'zoom-open',
+            'page-open',
+            'pg',
+            'zp',
+            'settings-opened'
+    );
+    document.body.classList.toggle('settings-opened');
+}
+
 const asides = [
     document.getElementById('sidebar'),
     document.getElementById('others'),
@@ -96,6 +112,7 @@ const asides = [
     document.getElementById('page-control'),
     document.getElementById('pg'),
     document.getElementById('zp'),
+    document.getElementById('settings-opened'),
 ];
 
 const openButtons = [
@@ -104,6 +121,8 @@ const openButtons = [
     document.getElementById('save-as-btn'),
     document.getElementById('open-zoom-tools'),
     document.getElementById('pg-settings'),
+    document.getElementById('settings'),
+    document.getElementById('language-select'),
 ];
 
 document.addEventListener('click', (e) => {
@@ -123,7 +142,8 @@ document.addEventListener('click', (e) => {
             'zoom-open',
             'page-open',
             'pg',
-            'zp'
+            'zp',
+            'settings-opened'
         );
     }
 });
@@ -341,31 +361,24 @@ const translations = {
         rotate: "Rotate",
         full_screen: "Full screen",
 
-        // Control panel
         continuous_short: "Continuous",
         page_by_page_short: "Page by page"
     },
 
     uz_latin: {
-        // Header
         system_name: "Ijro intizomi",
         system_desc: "Idoralararo yagona elektron tizim",
-
-        // Sidebar
         signed_by: "Kim tomonidan imzolangan",
         executor: "Hujjat ijrochisi",
         eri_issuer: "ERI bergan tashkilot",
         eri_validity: "ERI amal qilish muddati",
         signed_doc: "Imzolangan hujjat",
-
-        // Others menu
         download: "Yuklab olish",
         fullscreen: "To'liq ekran",
         save_as: "Saqlash nomi bilan",
         print: "Chop etish",
         settings: "Sozlamalar",
 
-        // Save As modal
         save_as_title: "Saqlash nomi bilan",
         file_name: "Fayl nomi",
         file_type: "Fayl turi",
@@ -378,44 +391,37 @@ const translations = {
         include_comments: "Sharhlarni qo'shish",
         save_file: "Faylni saqlash",
 
-        // Zoom tools
         zoom_percent: "100%",
         zoom_out: "Kichraytirish",
         zoom_in: "Kattalashtirish",
         fit_width: "Kenglik bo'yicha moslash",
 
-        // Page control
         page_navigation: "Sahifalar o'tish",
         continuous: "Doimiy",
         page_by_page: "Sahifama-sahifa",
         rotate: "Aylantirish",
         full_screen: "To'liq ekran",
 
-        // Control panel
         continuous_short: "Doimiy",
         page_by_page_short: "Sahifama-sahifa"
     },
 
     uz_cyrillic: {
-        // Header
         system_name: "Ижро интизоми",
         system_desc: "Идоралараро ягона электрон тизим",
 
-        // Sidebar
         signed_by: "Ким томонидан имзоланган",
         executor: "Ҳужжат ижрочиси",
         eri_issuer: "ЭРИ берган ташкилот",
         eri_validity: "ЭРИ амал қилиш муддати",
         signed_doc: "Имзоланган ҳужжат",
 
-        // Others menu
         download: "Юклаб олиш",
         fullscreen: "Тўлиқ экран",
         save_as: "Ном билан сақлаш",
         print: "Чоп этиш",
         settings: "Созламалар",
 
-        // Save As modal
         save_as_title: "Ном билан сақлаш",
         file_name: "Файл номи",
         file_type: "Файл тури",

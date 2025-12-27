@@ -504,6 +504,7 @@ body.pg .page-control{
   background-color: #1565c0;
 }
 
+.settings,
 .others {
   display: none;
   position: fixed;
@@ -521,6 +522,9 @@ body.pg .page-control{
 }
 
 body.others-open .others {
+  display: flex;
+}
+body.settings-opened .settings{
   display: flex;
 }
 
@@ -548,6 +552,7 @@ body.others-open .others {
   margin-bottom: 10px;
 }
 
+.settings .menu-buttons-con button,
 .page-control .menu-buttons-con button,
 .zoom-tools .menu-buttons-con button,
 .menu-buttons-con button,
@@ -637,3 +642,42 @@ body.others-open #others { transform: translateX(0); }
 body.save-as-open #save-as { transform: translateX(0); }
 body.zoom-open #zoom-tools { transform: translateX(0); }
 body.page-open #page-control { transform: translateX(0); }
+
+@media print {  
+  body * {
+    visibility: hidden !important;
+  }
+
+  #pdf-img,
+  #pdf-img * {
+    visibility: visible !important;
+  }
+
+  #pdf-img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .header,
+  .control-panel,
+  .sidebar,
+  .save-as,
+  .others,
+  .settings,
+  .zoom-tools,
+  .page-control {
+    display: none !important;
+  }
+}
