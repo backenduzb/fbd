@@ -34,7 +34,7 @@ else:
 if not DEBUG:
     CSRF_TRUSTED_ORIGINS = [
         "https://fbd-production.up.railway.app",
-        "https://check-ijro-uz.fun/admin",
+        "https://check-ijro-uz.fun",
     ]
 # Application definition
 
