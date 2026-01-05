@@ -91,9 +91,9 @@ class DocumentAdmin(admin.ModelAdmin):
                 qr_size = 120
 
                 rect = fitz.Rect(
-                    (w - qr_size) / 2,
+                    (w - qr_size) / 2.1,
                     h - qr_size - 5,
-                    (w + qr_size) / 2,
+                    (w + qr_size) / 2.1,
                     h - 5
                 )
 
